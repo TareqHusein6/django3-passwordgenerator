@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <style>
+
+        </style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <title>Home page</title>
+    </head>
+    <body>
+    <div class="container text-center">
+        <h1>Password Generator</h1>
+
+        <p style="color:navy;">Welcome to our home page of the Password Generator App , your
+            privacy is our first priority.</p>
+
+        <!-- action = is what page we want to go next, e.g after we click on submit
+            the use of "{%" here is meant for the action to take the actionName
+             inside urls.py name paramater (look in urls.py)
+        -->
+        <form action="{% url 'password' %}">
+            Password Length:
+            <select name="length">
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12" selected="selected">12</option>
+                <option value="13">13</option>
+            </select> Length
+
+            <div style="margin-top:20px;margin-bottom:10px;">
+                <div style="margin-bottom:10px">
+                    Password content:
+                </div>
+                <input type="checkbox" name="uppercase"> Uppercase
+                <input type="checkbox" name="numbers"> Numbers
+                <input  type="checkbox" name="special"> Special Characters
+            </div>
+
+            <!-- When we click submit the names attributes of the tags will be in the URL
+            i.e length=6-->
+            <div>
+                <input class="btn btn-primary" type="submit" value="Generate Password">
+            </div>
+
+        </form>
+        </div>
+        <!-- the "{" "{" "}" "}" gives us the possibility to use the dictionary that was passed by the views.py
+         functions
+        Username is: {{ username }}
+        Password is: {{ password }} -->
+        <ul class="nav">
+          <li class="nav-item">
+                <a class="nav-link active" href="{% url 'about'%}" >About</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+          </li>
+
+        </ul>
+    </body>
+</html>
